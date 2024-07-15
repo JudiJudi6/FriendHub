@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
-import Nav from "./components/nav/Nav";
+import Nav from "./_components/nav/Nav";
 import { Poppins } from "next/font/google";
 
 import "./styles/globals.css";
@@ -20,7 +20,9 @@ export default function RootLayout({ children }: Props) {
   return (
     <StoreProvider>
       <html lang="en">
-        <body className={`${poppins.className} bg-bg-dark relative min-h-screen text-white`}>
+        <body
+          className={`${poppins.className} bg-bg-dark relative min-h-screen text-white`}
+        >
           <div
             className="absolute top-0 left-0 right-0 bottom-0  overflow-hidden w-full h-full"
             id="app"

@@ -1,22 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { usePathname } from "next/navigation";
 import MobileNav from "./MobileNav";
 import SignInUpButtons from "./SignInUpButtons";
-import SearchPeopleInput from "./SearchPeopleInput";
 
 export default function BurgerButton() {
-  const pathName = usePathname();
-
-  const app = document.querySelector("#app");
+  const [app, setApp] = useState<Element | null>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [domReady, setDomReady] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setDomReady(true);
+    setApp(document.querySelector("#app"));
   }, []);
 
   const variantsBar1 = {
@@ -103,7 +100,7 @@ export default function BurgerButton() {
               transition={{ ease: "easeInOut" }}
               className={`absolute right-0 top-0 z-[50] -translate-x-full h-full w-[280px] bg-bg-dark border-l border-l-main-cyan border-solid p-6 pt-[88px] flex flex-col sm:hidden`}
             >
-              <MobileNav />
+              <MobileNav closeNav={closeNav} />
             </motion.div>
           </>,
           app

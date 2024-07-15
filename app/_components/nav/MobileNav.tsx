@@ -1,7 +1,11 @@
 import SearchPeopleInput from "./SearchPeopleInput";
 import SignInUpButtons from "./SignInUpButtons";
 
-export default function MobileNav() {
+interface MobileNavProps {
+  closeNav: () => void;
+}
+
+export default function MobileNav({ closeNav }: MobileNavProps) {
   const auth = false; //dsadassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 
   return (
@@ -13,7 +17,7 @@ export default function MobileNav() {
         <div></div>
       ) : (
         <div className="mt-10">
-          <SignInUpButtons />
+          <SignInUpButtons closeNav={closeNav}/>
         </div>
       )}
       <div className="mt-20">

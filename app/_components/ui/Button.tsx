@@ -19,6 +19,7 @@ export default function Button({
   return isLink ? (
     <Link
       href={link ?? ""}
+      onClick={onClick}
       className={`px-6 py-2 rounded-full   transition-colors duration-300  ${
         opp
           ? "border-2 border-main-cyan  text-main-cyan hover:text-bg-dark hover:bg-main-cyan"
